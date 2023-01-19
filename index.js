@@ -7,15 +7,17 @@ const app = express();
 require("dotenv").config();
 
 // initialize mongodb
-require("./Helpers/initMongoDB");
+require("./Helpers/InitMongoDB");
 
 // cors
 const cors = require("cors");
 app.use(cors());
 
 // routes
-const HealthRoute = require("./Routes/Health.Route");
-app.use("/health", HealthRoute);
+app.use("/v1", require("./Routes"));
+
+// error handler
+app.use(require("./Helpers/ExpressHelper").errorHandler);
 
 // listen to port
 app.listen(process.env.PORT, () => {
