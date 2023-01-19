@@ -9,8 +9,15 @@ require("dotenv").config();
 // initialize mongodb
 require("./Helpers/initMongoDB");
 
-// routes
+// cors
+const cors = require("cors");
+app.use(cors());
 
+// routes
+const HealthRoute = require("./Routes/Health.Route");
+app.use("/health", HealthRoute);
+
+// listen to port
 app.listen(process.env.PORT, () => {
   console.log("----------------------------------------");
   // if DEBUG is on, then console.log will be on otherwise it will be off
