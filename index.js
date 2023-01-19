@@ -24,10 +24,10 @@ app.listen(process.env.PORT, () => {
   console.log("----------------------------------------");
   // if DEBUG is on, then console.log will be on otherwise it will be off
   if (process.env.DEBUG === "on") {
-    console.log(`🔥 Development mode is on`);
+    console.log(`🤖 Development mode is on.`);
   } else {
-    console.log(`🔥 Production mode is on`);
+    console.log(`🔥 Production mode is on.`);
     console.log = function () {};
   }
-  console.log(`✅ Express server connected on: ${process.env.PORT}`);
+  console.log(`🚀 Express server connected on: ${process.env.PORT}`);
 });
